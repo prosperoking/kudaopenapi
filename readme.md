@@ -18,17 +18,21 @@ include './vendor/autoload.php';
 
 use Prosperoking\KudaOpenApi\KudaOpenApi;
 
+$client = "your_client_id_here"
+$baseUrl = 'https://sandbox.kudabank.com/v1';
+
 // initialize the object and pass the path or string of your key in pem format
 $openApi = new KudaOpenApi(
     __DIR__.'/private.pem',
     __DIR__.'/public.pem',
-    'nb3mv7L1g0FdIwT9AxBs'
-);
+    
 try {
     // this will return the account information
     var_dump($openApi->getAccountInfo([
         'beneficiaryAccountNumber'=> '0115745615',
-        'beneficiaryBankCode'=>'999058'
+        'beneficiaryBankCode'=>'999058',
+        $client,
+        $baseUrl
     ]));
 
 } catch (\Exception $th) {
@@ -45,11 +49,15 @@ You can also make request using the **makeRequest** method
 
 use Prosperoking\KudaOpenApi\KudaOpenApi;
 use Prosperoking\KudaOpenApi\ServiceTypes;
+
+$client = "your client id here"
+$baseUrl = 'https://sandbox.kudabank.com/v1';
 // initialize the object and pass the path or string of your key in pem format
 $openApi = new KudaOpenApi(
     __DIR__.'/private.pem',
     __DIR__.'/public.pem',
-    'nb3mv7L1g0FdIwT9AxBs'
+    $clientId,
+    $baseUrl
 );
 try {
     $payload = [
@@ -74,7 +82,7 @@ try {
 
 Here are what I intend to add:
 
-- Create a simple api base similar to kuda openapi-node ✅
+- Create a simple api base similar to kuda openapi-node ☑
 
 - Make Simple Classes to create payloads to be used in the makeRequest object to help intelisense support. ⏳
 
