@@ -1,4 +1,16 @@
 {
+    "name": "prosperoking/kudaopenapi",
+    "description": "A Simple library to communicate with kuda openapi",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Prosper Nweze",
+            "email": "daponextraspp@gmail.com",
+            "homepage": "https://github.com/prosperoking"
+        }
+    ],
+    "homepage": "https://github.com/prosperoking/kudaopenapi",
+    "keywords": ["Kuda", "Kuda openapi","php"],
     "require": {
         "guzzlehttp/guzzle": "^7.2",
         "phpseclib/phpseclib": "~2.0"

@@ -86,4 +86,6 @@ Here are what I intend to add:
 
 - Make Simple Classes to create payloads to be used in the makeRequest object to help intelisense support. ⏳
 
+- Add support for laravel
+
 - Create tests ⏳
