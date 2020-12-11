@@ -72,7 +72,7 @@ try {
 
 ## Road Map
 
-Here are a what I intend to add a simple methods from the class.
+Here are what I intend to add:
 
 - Create a simple api base similar to kuda openapi-node ✅
 
