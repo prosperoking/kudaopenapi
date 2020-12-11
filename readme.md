@@ -6,7 +6,7 @@ This library can help fill that gap till they have one ready.
 ## Installation
 
 ```bash
-> composer require prosperoking/kudaopen-api
+> composer require prosperoking/kudaopenapi
 ```
 
 ## Usage
