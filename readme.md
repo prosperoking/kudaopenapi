@@ -29,7 +29,7 @@ $openApi = new KudaOpenApi(
 try {
     // this will return the account information
     var_dump($openApi->getAccountInfo([
-        'beneficiaryAccountNumber'=> '0115745615',
+        'beneficiaryAccountNumber'=> '1115744617',
         'beneficiaryBankCode'=>'999058',
         $client,
         $baseUrl
@@ -61,7 +61,7 @@ $openApi = new KudaOpenApi(
 );
 try {
     $payload = [
-        'beneficiaryAccountNumber'=> '0115745615',
+        'beneficiaryAccountNumber'=> '1115744615',
         'beneficiaryBankCode'=>'999058'
     ];
     $requestRef= "myunique_identifier"
