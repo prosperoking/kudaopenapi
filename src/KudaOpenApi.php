@@ -39,6 +39,11 @@ class KudaOpenApi {
         return $this->makeRequest(ServiceTypes::BANK_LIST, [],$requestRef);
     }
 
+    public function kudaAccountTransfer($payload, $requestRef=null)
+    {
+        return $this->makeRequest(ServiceTypes::SINGLE_FUND_TRANSFER,$payload,$requestRef);
+    }
+
     private function encryptPassword($password)
     {
         return $this->crypter->encryptRSA( $password, $this->publicKey);
@@ -62,7 +67,7 @@ class KudaOpenApi {
     }
 
 
-    private function makeRequest(string $action ,array $payload,$requestRef=null)
+    public function makeRequest(string $action ,array $payload,$requestRef=null)
     {
         $client = new Client([
             'base_uri'=>$this->baseUri
