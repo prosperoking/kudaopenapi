@@ -53,9 +53,10 @@ try {
 }
 ```
 
-v2 comes with a cache driver to avoid making unneeded calls for authentication within every 5 hrs this
+v2 comes with a cache driver to avoid making unneeded calls for authentication making it 1 request every 12 minutes
 will help improve the speed of your requests.
-You can also write your own cache driver and supply for the client to use and example with laravel is
+You can also write your own cache driver and supply for the client to use and example with laravel will look something
+like this:
 ```php
 use Prosperoking\KudaOpenApi\Contracts\IAuthCacheDriver
 class MyAwesomeCacheDriver implements IAuthCacheDriver {
