@@ -145,7 +145,7 @@ class KudaOpenApiV2 {
                 ]
             ]) ;
             ["data"=>$data] = json_decode($response->getBody()->getContents(), true);
-            return json_decode($data, true);
+            return json_decode($data);
         }
         catch(ClientException $exception) {
             $response = $exception->getResponse();

@@ -36,7 +36,7 @@ $apiKey = 'xxxxxxxxxxx';
 // initialize the object and pass the path or string of your key in pem format
 $openApi = KudaOpenApiV2::initLive($email, $apiKey);
 // And for test environment 
-$openApi = KudaOpenApiV2::initLive($email, $apiKey);
+$openApi = KudaOpenApiV2::initTest($email, $apiKey);
 
 // You can also Use the constructor
 $openApi = new KudaOpenApiV2($email,$openApi, null, $baseUrl )
@@ -91,7 +91,7 @@ $myCacheDriver = new MyAwesomeCacheDriver()
 // initialize the object and pass the path or string of your key in pem format
 $openApi = KudaOpenApiV2::initLive($email, $apiKey, $myCacheDriver);
 // And for test environment 
-$openApi = KudaOpenApiV2::initLive($email, $apiKey, $myCacheDriver);
+$openApi = KudaOpenApiV2::initTest($email, $apiKey, $myCacheDriver);
 
 // You can set the cache driver using the set cache driver method
 
