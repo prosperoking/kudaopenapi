@@ -57,6 +57,7 @@ v2 comes with a cache driver to avoid making unneeded calls for authentication m
 will help improve the speed of your requests.
 You can also write your own cache driver and supply for the client to use and example with laravel will look something
 like this:
+> Cache should last a max of 15 minutes
 ```php
 use Prosperoking\KudaOpenApi\Contracts\IAuthCacheDriver
 class MyAwesomeCacheDriver implements IAuthCacheDriver {
