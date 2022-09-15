@@ -7,6 +7,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
 use phpseclib\Crypt\Random;
 use Prosperoking\KudaOpenApi\Contracts\IAuthCacheDriver;
+use Prosperoking\KudaOpenApi\Exceptions\AuthCacheStoreException;
 use Prosperoking\KudaOpenApi\Exceptions\KudaAuthenticationException;
 
 class KudaOpenApiV2 {
@@ -112,7 +113,7 @@ class KudaOpenApiV2 {
         ]);
 
         if($response->getStatusCode() !== 200)
-            throw new KudaAuthenticationException($response->getBody()->getContents());
+            throw new KudaAuthenticationException("Authentication failed: ".$response->getBody()->getContents());
         $token = $response->getBody()->getContents();
         $this->cacheDriver->setAuthToken($token);
         return $token;
@@ -145,14 +146,18 @@ class KudaOpenApiV2 {
                 ]
             ]) ;
             ["data"=>$data] = json_decode($response->getBody()->getContents(), true);
-            return (object)json_decode($data);
+            return json_decode($data);
         }
         catch(ClientException $exception) {
             $response = $exception->getResponse();
-            return ['Status'=>false, 'Message'=>json_decode($response->getBody()->getContents(),true),];
+            return (object) [
+                'Status'=>false,
+                'error'=> $this->errors($response->getStatusCode()),
+                'Message'=>json_decode($response->getBody()->getContents(),true),
+                ];
         }
         catch (\Throwable $th) {
-            return ['Status'=>false, 'Message'=>$th->getMessage()];
+            return (object) ['Status'=>false, 'Message'=>$th->getMessage()];
         }
         
     }
