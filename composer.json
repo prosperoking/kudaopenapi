@@ -13,7 +13,7 @@
     "keywords": ["Kuda", "Kuda openapi","php"],
     "require": {
         "guzzlehttp/guzzle": "^7.2",
-        "phpseclib/phpseclib": "~2.0",
+        "phpseclib/phpseclib": "^2.0",
         "ext-json": "*"
     },
     "autoload":{

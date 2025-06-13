@@ -150,6 +150,8 @@ class KudaOpenApiV2 {
         }
         catch(ClientException $exception) {
             $response = $exception->getResponse();
+
+            if($response->getStatusCode() === 401) throw  new KudaAuthenticationException($response->getBody()->getContents());
             return (object) [
                 'Status'=>false,
                 'error'=> $this->errors($response->getStatusCode()),

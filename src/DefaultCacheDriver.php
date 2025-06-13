@@ -23,6 +23,5 @@ class DefaultCacheDriver implements IAuthCacheDriver
         if(!$lmodt || (time() - $lmodt) > 60 * 12) return null;
 
         return file_get_contents($tempFile);
-        // TODO: Implement getAuthToken() method.
     }
 }
